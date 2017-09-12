@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  prod-panel:
+       build:
+          context: ../../.
+          dockerfile: ./docker/production/Dockerfile
+       container_name: prod-panel
+       environment:
+         - TERM=xterm-256color
+       privileged: true
+       restart: always
+       expose:
+         - "80"
+       ports:
+         - "80:80"
